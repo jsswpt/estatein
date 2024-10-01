@@ -1,17 +1,58 @@
 {
-  "name": "",
+  "name": "estatein",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "watch": "nodemon --watch src -e astro,ts,tsx,scss --exec 'npx prettier . --write & eslint src & npx stylelint **/*.scss' & astro dev --port 3000",
     "build": "astro check && astro build",
+    "watch:storybook": "nodemon --watch src -e astro,ts,tsx,scss --exec 'npx prettier . --write & eslint src & npx stylelint **/*.scss' & storybook dev -p 6006",
+    "build:storybook": "storybook build",
+    "start": "astro build && astro preview",
     "preview": "astro preview",
-    "astro": "astro"
+    "lint:check": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "astro": "^4.15.9",
     "@astrojs/check": "^0.9.3",
+    "@astrojs/react": "^3.6.2",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.15.9",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.79.4",
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
+    "@eslint/js": "^9.11.1",
+    "@storybook/addon-essentials": "^8.3.4",
+    "@storybook/addon-interactions": "^8.3.4",
+    "@storybook/addon-links": "^8.3.4",
+    "@storybook/addon-onboarding": "^8.3.4",
+    "@storybook/blocks": "^8.3.4",
+    "@storybook/react": "^8.3.4",
+    "@storybook/react-vite": "^8.3.4",
+    "@storybook/test": "^8.3.4",
+    "@typescript-eslint/parser": "^8.8.0",
+    "eslint": "^9.11.1",
+    "eslint-plugin-astro": "^1.2.4",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-storybook": "^0.9.0",
+    "globals": "^15.9.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "storybook": "^8.3.4",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typescript-eslint": "^8.8.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
