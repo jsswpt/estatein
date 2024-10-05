@@ -1,8 +1,41 @@
+// TODO: установить шрифт локально
+@import "https://fonts.googleapis.com/css?family=Urbanist:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: Urbanist, sans-serif;
   list-style: none;
   text-decoration: none;
+}
+
+:root {
+  --MAIN1: #141414;
+  --CONTRAST1: #fff;
+  --SURFACE1: #1a1a1a;
+  --STROKE1: #262626;
+  --STROKE2: #4D4D4D;
+  --OPACITIED1: #999;
+  --INACTIVE1: #808080;
+  --PRIMARY1: #703BF7;
+  --WARNING1: #FAA937;
+  --ERROR1: #F95738;
+  --SUCCESS1: #FFE500;
+  --EL-SM: 1.5rem;
+  --EL-MD: 2.75rem;
+  --EL-LG: 4rem;
+  --ICON-SM: 1rem;
+  --ICON-MD: 1.25rem;
+  --ICON-LG: 1.5rem;
+  --HEADER-SM: 4rem;
+  --HEADER-MD: 5rem;
+  --HEADER-LG: 6rem;
+  --RADIUS-SM: 0.25rem;
+  --RADIUS-MD: 0.75rem;
+  --RADIUS-LG: 2rem;
+}
+
+body {
+  background: var(--MAIN1);
 }
