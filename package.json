@@ -3,15 +3,17 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "watch": "nodemon --watch src -e astro,ts,tsx,scss --exec 'npx prettier . --write & eslint src & npx stylelint **/*.scss' & astro dev --port 3000",
+    "watch": "astro dev --port 3000",
     "build": "astro check && astro build",
-    "watch:storybook": "nodemon --watch src -e astro,ts,tsx,scss --exec 'npx prettier . --write & eslint src & npx stylelint **/*.scss' & storybook dev -p 6006",
+    "watch:prettier": "nodemon --watch src -e astro,ts,tsx --exec 'npx prettier . --write'",
+    "watch:eslint": "nodemon --watch src -e astro,ts,tsx --exec 'eslint src'",
+    "fix:eslint": "eslint src --fix",
+    "watch:stylelint": "nodemon --watch src -e scss --exec 'npx stylelint **/*.scss --fix & npx stylelint **/*.scss'",
+    "watch:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "serve-storybook": "serve storybook-static",
     "start": "astro build && astro preview",
-    "preview": "astro preview",
-    "lint:check": "eslint",
-    "lint:fix": "eslint --fix"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
