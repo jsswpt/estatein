@@ -5,7 +5,7 @@
   "scripts": {
     "watch": "astro dev --port 3000",
     "build": "astro check && astro build",
-    "watch:prettier": "nodemon --watch src -e astro,ts,tsx --exec 'npx prettier . --write'",
+    "watch:prettier": "nodemon --watch src -e astro,ts,tsx,scss --exec 'npx prettier . --write'",
     "watch:eslint": "nodemon --watch src -e astro,ts,tsx --exec 'eslint src'",
     "fix:eslint": "eslint src --fix",
     "watch:stylelint": "nodemon --watch src -e scss --exec 'npx stylelint **/*.scss --fix & npx stylelint **/*.scss'",
