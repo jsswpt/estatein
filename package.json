@@ -5,11 +5,12 @@
   "scripts": {
     "watch": "astro dev --port 3000",
     "build": "astro check && astro build",
-    "watch:prettier": "nodemon --watch src -e astro,ts,tsx,scss --exec 'npx prettier . --write'",
-    "watch:eslint": "nodemon --watch src -e astro,ts,tsx --exec 'eslint src --fix'",
+    "watch:prettier": "nodemon --quiet --watch src -e astro,ts,tsx,scss --exec 'yarn prettier . --write'",
+    "watch:eslint": "nodemon --quiet --watch src -e astro,ts,tsx --exec 'yarn eslint src --fix'",
     "watch:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "serve-storybook": "serve storybook-static",
+    "generate:icons": "node ./scripts/generate-icons.cjs && yarn prettier ./src/shared/ui/atoms/icon --write && yarn eslint ./src/shared/ui/atoms/icon --fix",
     "start": "astro build && astro preview",
     "preview": "astro preview"
   },
