@@ -1,10 +1,10 @@
-import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
 import eslintPluginAstro from "eslint-plugin-astro";
+import pluginReact from "eslint-plugin-react";
 import eslintPluginImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginExportSort from "eslint-plugin-sort-exports";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default [
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
@@ -40,7 +40,7 @@ export default [
           ],
         },
       ],
-      "simple-import-sort/exports": "error",
+      "simple-import-sort/exports": "off",
     },
   },
   {
@@ -50,7 +50,7 @@ export default [
     rules: {
       "sort-exports/sort-exports": [
         "error",
-        { sortDir: "asc", pattern: "**/index.ts" },
+        { sortDir: "asc", ignoreCase: true, pattern: "**/index.ts" },
       ],
     },
   },
