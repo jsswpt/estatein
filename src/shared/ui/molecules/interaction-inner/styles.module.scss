@@ -1,0 +1,72 @@
+.interaction-inner {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+
+  &:has(.slot-start) {
+    .slot-end {
+      margin-left: calc(var(--GAP) / 2);
+    }
+  }
+  &:has(.slot-end) {
+    .slot-center {
+      flex: 1;
+    }
+  }
+}
+
+.gap {
+  &_xs {
+    --GAP: var(--EL-XS);
+  }
+  &_sm {
+    --GAP: var(--EL-SM);
+  }
+  &_md {
+    --GAP: var(--EL-MD);
+  }
+  &_lg {
+    --GAP: var(--EL-LG);
+  }
+
+  &_xs,
+  &_sm,
+  &_md,
+  &_lg {
+    gap: calc(var(--GAP) / 4);
+  }
+}
+
+.align {
+  &_top {
+    --ALIGN: flex-start;
+  }
+
+  &_center {
+    --ALIGN: center;
+  }
+
+  &_bottom {
+    --ALIGN: flex-end;
+  }
+
+  &_top,
+  &_center,
+  &_bottom {
+    & > .slot {
+      align-items: var(--ALIGN);
+    }
+  }
+}
+
+.divider {
+  height: 40%;
+  opacity: 0.24;
+}
+
+.slot {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+}

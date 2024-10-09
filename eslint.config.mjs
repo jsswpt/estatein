@@ -71,6 +71,7 @@ export default [
     rules: {
       "@typescript-eslint/triple-slash-reference": "off",
       "react/display-name": "off",
+      "no-unused-vars": ["error"],
     },
   },
   {
