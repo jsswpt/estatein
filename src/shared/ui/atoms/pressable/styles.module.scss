@@ -1,0 +1,233 @@
+.pressable {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border-style: solid;
+  border-width: 0.0625rem;
+  border-color: transparent;
+  outline: none;
+  transition: 0.16s ease-out;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:active {
+    transition: 0.08s ease-out;
+  }
+}
+
+.color {
+  &_primary {
+    --MAIN-COLOR: var(--PRIMARY1);
+    --ON: var(--CONTRAST1);
+  }
+
+  &_warning {
+    --MAIN-COLOR: var(--WARNING1);
+    --ON: var(--MAIN1);
+  }
+
+  &_error {
+    --MAIN-COLOR: var(--ERROR1);
+    --ON: var(--CONTRAST1);
+  }
+
+  &_success {
+    --MAIN-COLOR: var(--SUCCESS1);
+    --ON: var(--MAIN1);
+  }
+
+  &_inherit {
+    --MAIN-COLOR: var(--MAIN1);
+    --ON: var(--CONTRAST1);
+  }
+}
+
+.variant {
+  &_contained {
+    &:not(:disabled) {
+      background: color-mix(in srgb, var(--MAIN-COLOR), transparent 24%);
+      color: var(--ON);
+
+      &:hover {
+        background: var(--MAIN-COLOR);
+      }
+
+      &:active {
+        background: color-mix(in srgb, var(--MAIN-COLOR), transparent 32%);
+      }
+    }
+
+    &:disabled {
+      background: var(--STROKE1);
+      color: var(--OPACITIED1);
+    }
+  }
+
+  &_outlined {
+    &:not(:disabled) {
+      background: var(--MAIN1);
+      border-color: var(--MAIN-COLOR);
+      color: var(--MAIN-COLOR);
+
+      &:hover {
+        border-color: color-mix(in srgb, var(--MAIN-COLOR), transparent 32%);
+        color: color-mix(in srgb, var(--MAIN-COLOR), transparent 32%);
+      }
+
+      &:active {
+        border-color: color-mix(in srgb, var(--MAIN-COLOR), transparent 64%);
+        color: color-mix(in srgb, var(--MAIN-COLOR), transparent 64%);
+      }
+
+      &.color_inherit {
+        border-color: var(--STROKE1);
+        color: var(--ON);
+
+        &:hover {
+          border-color: color-mix(in srgb, var(--STROKE1), transparent 32%);
+          color: color-mix(in srgb, var(--ON), transparent 32%);
+        }
+
+        &:active {
+          border-color: color-mix(in srgb, var(--STROKE1), transparent 64%);
+          color: color-mix(in srgb, var(--ON), transparent 64%);
+        }
+      }
+    }
+
+    &:disabled {
+      border-color: var(--STROKE1);
+      color: var(--OPACITIED1);
+    }
+  }
+
+  &_text {
+    &:not(:disabled) {
+      color: var(--MAIN-COLOR);
+
+      &:hover {
+        background: color-mix(in srgb, var(--MAIN-COLOR), transparent 88%);
+      }
+
+      &:active {
+        background: color-mix(in srgb, var(--MAIN-COLOR), transparent 92%);
+      }
+
+      &.color_inherit {
+        color: var(--ON);
+
+        &:hover {
+          background: color-mix(in srgb, var(--ON), transparent 92%);
+        }
+
+        &:active {
+          background: color-mix(in srgb, var(--ON), transparent 96%);
+        }
+      }
+    }
+
+    &:disabled {
+      color: var(--OPACITIED1);
+    }
+  }
+
+  &_ghost {
+    &:not(:disabled) {
+      color: var(--MAIN-COLOR);
+      background: color-mix(in srgb, var(--MAIN-COLOR), transparent 92%);
+
+      &:hover {
+        background: color-mix(in srgb, var(--MAIN-COLOR), transparent 96%);
+      }
+
+      &:active {
+        background: color-mix(in srgb, var(--MAIN-COLOR), transparent 92%);
+      }
+
+      &.color_inherit {
+        color: var(--ON);
+        background: color-mix(in srgb, var(--ON), transparent 92%);
+
+        &:hover {
+          background: color-mix(in srgb, var(--ON), transparent 96%);
+        }
+
+        &:active {
+          background: color-mix(in srgb, var(--ON), transparent 92%);
+        }
+      }
+    }
+  }
+
+  &_text,
+  &_ghost {
+    &:disabled {
+      color: var(--OPACITIED1);
+    }
+  }
+}
+
+.size {
+  &_xs {
+    --SIZE: var(--EL-XS);
+  }
+
+  &_sm {
+    --SIZE: var(--EL-SM);
+  }
+
+  &_md {
+    --SIZE: var(--EL-MD);
+  }
+
+  &_lg {
+    --SIZE: var(--EL-LG);
+  }
+
+  &_xs,
+  &_sm,
+  &_md,
+  &_lg {
+    padding: 0 calc(var(--SIZE) / 2);
+    height: var(--SIZE);
+
+    &.squared {
+      padding: 0;
+      width: var(--SIZE);
+    }
+  }
+}
+
+.radius {
+  &_none {
+    --RADIUS: 0;
+  }
+  &_sm {
+    --RADIUS: var(--RADIUS-SM);
+  }
+  &_md {
+    --RADIUS: var(--RADIUS-MD);
+  }
+  &_lg {
+    --RADIUS: var(--RADIUS-LG);
+  }
+  &_full {
+    --RADIUS: 50%;
+  }
+
+  &_none,
+  &_sm,
+  &_md,
+  &_lg,
+  &_full {
+    border-radius: var(--RADIUS);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

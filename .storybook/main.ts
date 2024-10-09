@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { resolve } from "node:path";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -9,6 +10,10 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
   ],
+  viteFinal: (config, options) => ({
+    ...config,
+    resolve: { alias: { root: resolve(__dirname, "..", "./src") } },
+  }),
   framework: {
     name: "@storybook/react-vite",
     options: {},
