@@ -1,11 +1,11 @@
 import * as icon from "./ui";
-import type { IconProps } from "./ui/index.type";
+import type { IconProps as CommonIconProps } from "./ui/index.type";
 
-type Props = {
+export type IconProps = {
   name: keyof typeof icon;
-} & IconProps;
+} & CommonIconProps;
 
-export const Icon = ({ name, ...rest }: Props) => {
+export const Icon = ({ name, ...rest }: IconProps) => {
   const Component = icon[name];
 
   return <Component {...rest} />;
