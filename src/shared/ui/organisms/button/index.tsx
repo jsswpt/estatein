@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import cl from "clsx";
 
 import st from "./styles.module.scss";
@@ -50,59 +51,67 @@ const sizeToClasses: Record<
   },
 };
 
-export const Button = ({
-  children,
-  color,
-  fullWidth,
-  radius,
-  size,
-  variant,
-  mainIcon,
-  additionalIcon,
-  ...rest
-}: ButtonProps) => {
-  const iconClass = cl(st.icon, sizeToClasses[size].icon);
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      color,
+      fullWidth,
+      radius,
+      size,
+      variant,
+      mainIcon,
+      additionalIcon,
+      ...rest
+    },
+    ref,
+  ) => {
+    const iconClass = cl(st.icon, sizeToClasses[size].icon);
 
-  const renderMainIcon = mainIcon ? (
-    <div className={iconClass}>
-      <Icon {...mainIcon} />
-    </div>
-  ) : null;
+    const renderMainIcon = mainIcon ? (
+      <div className={iconClass}>
+        <Icon {...mainIcon} />
+      </div>
+    ) : null;
 
-  const renderAdditionalIcon = additionalIcon ? (
-    <div className={iconClass}>
-      <Icon {...additionalIcon} />
-    </div>
-  ) : null;
+    const renderAdditionalIcon = additionalIcon ? (
+      <div className={iconClass}>
+        <Icon {...additionalIcon} />
+      </div>
+    ) : null;
 
-  return (
-    <Pressable
-      color={color}
-      fullWidth={fullWidth}
-      radius={radius}
-      size={size}
-      squared={!children && !!mainIcon}
-      variant={variant}
-      {...rest}
-    >
-      <InteractionInner
-        gap={size}
-        align="center"
-        slotStart={!!children && !!renderMainIcon ? renderMainIcon : undefined}
-        slotEnd={
-          !!children && !!renderAdditionalIcon
-            ? renderAdditionalIcon
-            : undefined
-        }
+    return (
+      <Pressable
+        color={color}
+        fullWidth={fullWidth}
+        radius={radius}
+        size={size}
+        squared={!children && !!mainIcon}
+        variant={variant}
+        ref={ref}
+        {...rest}
       >
-        {children ? (
-          <span className={cl(st.text, sizeToClasses[size].text)}>
-            {children}
-          </span>
-        ) : (
-          renderMainIcon!
-        )}
-      </InteractionInner>
-    </Pressable>
-  );
-};
+        <InteractionInner
+          gap={size}
+          align="center"
+          slotStart={
+            !!children && !!renderMainIcon ? renderMainIcon : undefined
+          }
+          slotEnd={
+            !!children && !!renderAdditionalIcon
+              ? renderAdditionalIcon
+              : undefined
+          }
+        >
+          {children ? (
+            <span className={cl(st.text, sizeToClasses[size].text)}>
+              {children}
+            </span>
+          ) : (
+            renderMainIcon!
+          )}
+        </InteractionInner>
+      </Pressable>
+    );
+  },
+);
