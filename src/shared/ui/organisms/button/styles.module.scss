@@ -1,0 +1,25 @@
+.icon {
+  display: flex;
+  &_lg {
+    --SIZE: var(--ICON-LG);
+  }
+  &_md {
+    --SIZE: var(--ICON-MD);
+  }
+  &_sm {
+    --SIZE: var(--ICON-SM);
+  }
+  &_xs {
+    --SIZE: var(--ICON-XS);
+  }
+
+  &_lg,
+  &_md,
+  &_sm,
+  &_xs {
+    & > * {
+      height: var(--SIZE);
+      width: 100%;
+    }
+  }
+}
