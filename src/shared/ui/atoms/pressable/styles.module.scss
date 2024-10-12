@@ -6,7 +6,7 @@
   border-width: 0.0625rem;
   border-color: transparent;
   outline: none;
-  transition: 0.16s ease-out;
+  transition: var(--TRANSITION-SM);
   overflow: hidden;
   cursor: pointer;
 
@@ -15,7 +15,7 @@
   }
 
   &:active {
-    transition: 0.08s ease-out;
+    transition: var(--TRANSITION-XS);
   }
 }
 

@@ -4,36 +4,38 @@ import { propsToClass } from "root/shared/lib/classList";
 
 import st from "./styles.module.scss";
 
-export const colorToClass = propsToClass(
-  ["primary", "warning", "error", "success", "inherit"],
-  "color",
-);
+export const pressableColors = [
+  "primary",
+  "warning",
+  "error",
+  "success",
+  "inherit",
+] as const;
 
-type PressableColor = keyof typeof colorToClass;
+const colorToClass = propsToClass(pressableColors, "color");
 
-export const variantToClass = propsToClass(
-  ["contained", "outlined", "text", "ghost"],
-  "variant",
-);
+export const pressableVariants = [
+  "contained",
+  "outlined",
+  "text",
+  "ghost",
+] as const;
 
-type PressableVariant = keyof typeof variantToClass;
+const variantToClass = propsToClass(pressableVariants, "variant");
 
-export const sizeToClass = propsToClass(["xs", "sm", "md", "lg"], "size");
+export const pressableSizes = ["xs", "sm", "md", "lg"] as const;
 
-type PressableSize = keyof typeof sizeToClass;
+const sizeToClass = propsToClass(pressableSizes, "size");
 
-export const radiusToClass = propsToClass(
-  ["none", "sm", "md", "lg", "full"],
-  "radius",
-);
+export const pressableRadiuses = ["none", "sm", "md", "lg", "full"] as const;
 
-type PressableRadius = keyof typeof radiusToClass;
+const radiusToClass = propsToClass(pressableRadiuses, "radius");
 
 export type PressableProps = {
-  color: PressableColor;
-  variant: PressableVariant;
-  size: PressableSize;
-  radius: PressableRadius;
+  color: (typeof pressableColors)[number];
+  variant: (typeof pressableVariants)[number];
+  size: (typeof pressableSizes)[number];
+  radius: (typeof pressableRadiuses)[number];
   squared: boolean;
   fullWidth: boolean;
   children: JSX.Element;

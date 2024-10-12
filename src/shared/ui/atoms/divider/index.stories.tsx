@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { directionToClass, Divider as Component } from "./index";
+import { Divider as Component, dividerDirections } from "./index";
 
 const meta = {
   title: "Atoms/Divider",
   component: Component,
   tags: ["autodocs"],
   argTypes: {
-    direction: { control: "select", options: Object.keys(directionToClass) },
+    direction: {
+      control: "select",
+      options: dividerDirections,
+    },
   },
 } satisfies Meta<typeof Component>;
 

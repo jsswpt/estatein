@@ -4,7 +4,7 @@ type PropsToClassResult<V extends string, P extends string> = Record<
 >;
 
 export const propsToClass = <V extends string, P extends string>(
-  values: Array<V>,
+  values: readonly V[],
   prefix: P,
 ) =>
   values.reduce(

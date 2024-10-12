@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import {
-  colorToClass,
   Pressable as Component,
-  radiusToClass,
-  sizeToClass,
-  variantToClass,
+  pressableColors,
+  pressableRadiuses,
+  pressableSizes,
+  pressableVariants,
 } from "./";
 
 const meta = {
@@ -20,10 +20,22 @@ const meta = {
     radius: "none",
   },
   argTypes: {
-    color: { control: "select", options: Object.keys(colorToClass) },
-    variant: { control: "select", options: Object.keys(variantToClass) },
-    size: { control: "select", options: Object.keys(sizeToClass) },
-    radius: { control: "select", options: Object.keys(radiusToClass) },
+    color: {
+      control: "select",
+      options: pressableColors,
+    },
+    variant: {
+      control: "select",
+      options: pressableVariants,
+    },
+    size: {
+      control: "select",
+      options: pressableSizes,
+    },
+    radius: {
+      control: "select",
+      options: pressableRadiuses,
+    },
   },
 } satisfies Meta<typeof Component>;
 

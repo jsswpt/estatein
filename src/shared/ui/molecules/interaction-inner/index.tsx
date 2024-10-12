@@ -5,20 +5,20 @@ import st from "./styles.module.scss";
 
 import { Divider } from "../../atoms";
 
-export const gapToClass = propsToClass(["xs", "sm", "md", "lg"], "gap");
+export const interactionInnerGaps = ["xs", "sm", "md", "lg"];
 
-type InteractionInnerGap = keyof typeof gapToClass;
+const gapToClass = propsToClass(interactionInnerGaps, "gap");
 
-export const alignToClass = propsToClass(["top", "center", "bottom"], "align");
+export const interactionInnerAlignments = ["top", "center", "bottom"];
 
-type InteractionInnerAlign = keyof typeof alignToClass;
+const alignToClass = propsToClass(interactionInnerAlignments, "align");
 
 export type InteractionInnerProps = {
   slotStart?: JSX.Element;
   children?: JSX.Element;
   slotEnd?: JSX.Element;
-  gap: InteractionInnerGap;
-  align?: InteractionInnerAlign;
+  gap: (typeof interactionInnerGaps)[number];
+  align?: (typeof interactionInnerAlignments)[number];
   divide?: boolean;
 };
 
