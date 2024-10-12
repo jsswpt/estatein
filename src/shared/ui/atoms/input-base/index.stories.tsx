@@ -27,7 +27,9 @@ export const InputBase: Story = {
       <input
         disabled={props.disabled}
         style={{
+          display: "block",
           width: "100%",
+          height: `var(--EL-MD)`,
           color: !props.disabled ? "var(--CONTRAST1)" : "var(--OPACITIED1)",
           background: "transparent",
           border: "none",

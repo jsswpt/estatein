@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import {
   InteractionInner as Component,
   interactionInnerAlignments,
-  interactionInnerGaps,
+  interactionInnerSizes,
 } from "./index";
 
 const meta = {
@@ -11,25 +11,29 @@ const meta = {
   component: Component,
   tags: ["autodocs"],
   args: {
-    gap: "md",
+    size: "md",
     align: "center",
     children: <span className="action1">children</span>,
+    stretch: true,
+    disablePadding: false,
   },
   argTypes: {
     align: {
       control: "select",
       options: interactionInnerAlignments,
     },
-    gap: {
+    size: {
       control: "select",
-      options: interactionInnerGaps,
+      options: interactionInnerSizes,
     },
   },
   render: (props) => (
     <div
       style={{
+        padding: "0.5rem 0",
         color: "white",
-        height: "var(--EL-MD)",
+        minHeight: "var(--EL-LG)",
+        border: "0.0625rem solid var(--STROKE1)",
       }}
     >
       <Component {...props} />

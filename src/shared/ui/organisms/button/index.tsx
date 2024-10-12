@@ -11,20 +11,11 @@ import {
 } from "../../atoms";
 import { InteractionInner } from "../../molecules";
 
-export type ButtonProps = ButtonUnion &
-  Omit<PressableProps, "children" | "squared">;
-
-type ButtonUnion =
-  | {
-      mainIcon?: IconProps;
-      children: string;
-      additionalIcon?: IconProps;
-    }
-  | {
-      mainIcon: IconProps;
-      children?: undefined;
-      additionalIcon?: undefined;
-    };
+export type ButtonProps = {
+  mainIcon?: IconProps;
+  children?: string;
+  additionalIcon?: IconProps;
+} & Omit<PressableProps, "children" | "squared">;
 
 const sizeToClasses: Record<
   PressableProps["size"],
@@ -92,7 +83,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
       >
         <InteractionInner
-          gap={size}
+          stretch={false}
+          size={size}
           align="center"
           slotStart={
             !!children && !!renderMainIcon ? renderMainIcon : undefined
@@ -102,6 +94,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               ? renderAdditionalIcon
               : undefined
           }
+          disablePadding={!children && !!mainIcon}
         >
           {children ? (
             <span className={cl(st.text, sizeToClasses[size].text)}>
