@@ -14,7 +14,6 @@ const meta = {
     fullWidth: false,
     radius: "md",
     size: "md",
-    onClick: () => alert("Click"),
   },
   argTypes: PressableMeta.argTypes,
 } satisfies Meta<typeof Component>;

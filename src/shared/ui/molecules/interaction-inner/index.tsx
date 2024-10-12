@@ -5,36 +5,44 @@ import st from "./styles.module.scss";
 
 import { Divider } from "../../atoms";
 
-export const interactionInnerGaps = ["xs", "sm", "md", "lg"];
-
-const gapToClass = propsToClass(interactionInnerGaps, "gap");
-
-export const interactionInnerAlignments = ["top", "center", "bottom"];
+export const interactionInnerAlignments = ["top", "center", "bottom"] as const;
 
 const alignToClass = propsToClass(interactionInnerAlignments, "align");
+
+export const interactionInnerSizes = ["xs", "sm", "md", "lg"] as const;
+
+const sizeToClass = propsToClass(interactionInnerSizes, "size");
 
 export type InteractionInnerProps = {
   slotStart?: JSX.Element;
   children?: JSX.Element;
   slotEnd?: JSX.Element;
-  gap: (typeof interactionInnerGaps)[number];
+  size: (typeof interactionInnerSizes)[number];
   align?: (typeof interactionInnerAlignments)[number];
   divide?: boolean;
+  stretch?: boolean;
+  disablePadding?: boolean;
 };
 
 export const InteractionInner = ({
   children,
   slotEnd,
   slotStart,
-  gap,
   align = "center",
+  size,
   divide,
+  stretch = true,
+  disablePadding = false,
 }: InteractionInnerProps) => (
   <div
     className={cl(
       st["interaction-inner"],
-      st[gapToClass[gap]],
       st[alignToClass[align]],
+      st[sizeToClass[size]],
+      {
+        [st.stretch]: stretch,
+        [st["disable-padding"]]: disablePadding,
+      },
     )}
   >
     {slotStart && (

@@ -192,11 +192,9 @@
   &_sm,
   &_md,
   &_lg {
-    padding: 0 calc(var(--SIZE) / 2);
     height: var(--SIZE);
 
     &.squared {
-      padding: 0;
       width: var(--SIZE);
     }
   }
