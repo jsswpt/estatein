@@ -8,7 +8,7 @@ import {
   pressableVariants,
 } from "./";
 
-const meta: Meta<typeof Component> = {
+const meta = {
   title: "Atoms/Pressable",
   component: Component,
   tags: ["autodocs"],
@@ -37,7 +37,7 @@ const meta: Meta<typeof Component> = {
       options: pressableRadiuses,
     },
   },
-};
+} satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof meta>;
 
