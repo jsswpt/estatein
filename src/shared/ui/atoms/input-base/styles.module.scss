@@ -1,0 +1,45 @@
+.input-base {
+  background: var(--SURFACE1);
+  border-style: solid;
+  border-width: 0.0625rem;
+  border-color: var(--STROKE1);
+  cursor: text;
+
+  transition: var(--TRANSITION-SM);
+
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  &[aria-disabled="false"] {
+    cursor: text;
+
+    &:hover {
+      border-color: var(--STROKE2);
+    }
+
+    &:focus-within {
+      border-color: var(--OPACITIED1);
+    }
+  }
+}
+
+.radius {
+  &_sm {
+    --RADIUS: var(--RADIUS-SM);
+  }
+
+  &_md {
+    --RADIUS: var(--RADIUS-MD);
+  }
+
+  &_lg {
+    --RADIUS: var(--RADIUS-SM);
+  }
+
+  &_sm,
+  &_md,
+  &_lg {
+    border-radius: var(--RADIUS);
+  }
+}

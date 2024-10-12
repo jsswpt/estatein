@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { InteractionInner as Component } from "./index";
-import { alignToClass, gapToClass } from "./index";
+import {
+  InteractionInner as Component,
+  interactionInnerAlignments,
+  interactionInnerGaps,
+} from "./index";
 
 const meta = {
   title: "Molecules/InteractionInner",
@@ -11,6 +14,16 @@ const meta = {
     gap: "md",
     align: "center",
     children: <span className="action1">children</span>,
+  },
+  argTypes: {
+    align: {
+      control: "select",
+      options: interactionInnerAlignments,
+    },
+    gap: {
+      control: "select",
+      options: interactionInnerGaps,
+    },
   },
   render: (props) => (
     <div
@@ -22,16 +35,6 @@ const meta = {
       <Component {...props} />
     </div>
   ),
-  argTypes: {
-    gap: {
-      control: "select",
-      options: Object.keys(gapToClass),
-    },
-    align: {
-      control: "select",
-      options: Object.keys(alignToClass),
-    },
-  },
 } satisfies Meta<typeof Component>;
 
 type Story = StoryObj<typeof meta>;

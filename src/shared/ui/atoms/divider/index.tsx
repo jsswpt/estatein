@@ -3,15 +3,12 @@ import { propsToClass } from "root/shared/lib/classList";
 
 import st from "./styles.module.scss";
 
-export const directionToClass = propsToClass(
-  ["horizontal", "vertical"],
-  "direction",
-);
+export const dividerDirections = ["horizontal", "vertical"] as const;
 
-type DividerDirection = keyof typeof directionToClass;
+const directionToClass = propsToClass(dividerDirections, "direction");
 
 export type DividerProps = {
-  direction?: DividerDirection;
+  direction?: (typeof dividerDirections)[number];
   inheritColor?: boolean;
 };
 
